@@ -1,0 +1,20 @@
+= render 'common/content_header', title: 'Leads'
+
+- if @leads.any?
+
+  - if params['view'] == 'table'
+    = render 'table_view'
+
+  - if params['view'] == 'list'
+    = render 'list_view'
+
+  - unless params['view']
+    = render 'grid_view'
+
+- else
+
+  = render 'common/no_data'
+
+= will_paginate @leads
+
+= render 'sidebar'

@@ -1,0 +1,26 @@
+= render 'common/content_header', title: @task.name
+p
+  strong Project:
+  - if @task.project_id
+    = Project.find(@task.project_id).name
+
+p
+  strong Assigned to:
+  - if @task.user_id
+    = User.find(@task.user_id).full_name
+
+p
+  strong Start date:
+  = @task.start_date
+
+p
+  strong Due date:
+  = @task.due_date
+
+p
+  strong Estimated hours:
+  = @task.est_hours
+
+p
+  strong Description:
+  = @task.description

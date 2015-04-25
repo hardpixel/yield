@@ -1,0 +1,16 @@
+= render 'common/content_header', title: 'Invoices'
+
+- if @invoices.any?
+
+  - if params['view'] == 'list'
+  	= render 'list_view'
+  - else
+    = render 'grid_view'
+
+- else
+
+  = render 'common/no_data'
+
+= will_paginate @invoices
+
+= render 'sidebar'

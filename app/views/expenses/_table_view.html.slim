@@ -1,0 +1,19 @@
+table.table-listing
+  thead
+    tr
+      th Title
+      th Due date
+      th Cycle
+      th Description
+      th Actions
+
+  tbody
+    - @expenses.each do |expense|
+      tr
+        td = link_to expense.title, expense
+        td = expense.due_date
+        td = expense.rec_cycle
+        td = expense.description
+        td.table-actions
+          = link_to icon('pencil'), edit_expense_path(expense), class: 'btn btn-default'
+          = link_to icon('trash'), expense, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

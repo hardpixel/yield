@@ -1,0 +1,19 @@
+table.table-listing
+  thead
+    tr
+      th Subject
+      th Start date
+      th End Date
+      th Description
+      th Actions
+
+  tbody
+    - @meetings.each do |meeting|
+      tr
+        td = link_to meeting.subject, meeting
+        td = meeting.start_time
+        td = meeting.end_time
+        td = meeting.description
+        td.table-actions
+          = link_to icon('pencil'), edit_meeting_path(meeting), class: 'btn btn-default'
+          = link_to icon('trash'), meeting, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

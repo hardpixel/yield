@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong First name:
+  = @contact.first_name
+p
+  strong Last name:
+  = @contact.last_name
+p
+  strong Email:
+  = @contact.email
+p
+  strong Address:
+  = @contact.address
+p
+  strong Phone:
+  = @contact.phone
+p
+  strong Mobile:
+  = @contact.mobile
+
+= link_to 'Edit', edit_contact_path(@contact)
+'|
+= link_to 'Back', contacts_path

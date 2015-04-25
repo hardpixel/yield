@@ -1,0 +1,9 @@
+= simple_form_for(@lead) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :description, as: :text_editor, input_html: { rows: 5 }
+
+  .form-actions
+    = f.button :submit

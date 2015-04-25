@@ -1,0 +1,41 @@
+- content_for :header do
+
+  h1 = t title
+
+  - if params[:action] == 'index'
+    = link_to icon('plus') + 'Add New', { controller: params[:controller], action: 'new' }, class: 'btn btn-success icon-left btn-sm'
+
+  .header-actions
+    - if params[:action] == 'index'
+      .form-inline
+        .form-group
+
+          .btn-group
+
+            button.btn.btn-default.dropdown-toggle.icon-right aria-expanded="false" data-toggle="dropdown" type="button"
+              - if params[:per_page]
+                = params[:per_page]
+              - else
+                = 15
+
+              = icon 'caret-down'
+
+            ul.dropdown-menu.pull-right role="menu"
+              li.text-right
+                = link_to 15, params.except(:per_page)
+
+              - per_page = [25, 50, 100]
+
+              - per_page.each do |n|
+                li.text-right
+                  = link_to n, params.merge(per_page: n)
+
+          .btn-group
+            = link_to icon('th-large'), params.except(:view), class: "btn btn-default #{!params['view'] ? 'active' : ''}"
+            = link_to icon('th-list'), params.merge(view: 'list'), class: "btn btn-default #{params['view'] == 'list' ? 'active' : ''}"
+
+    - if params[:action] == 'show'
+      = link_to icon('pencil') + 'Edit', { controller: params[:controller], action: 'edit' }, class: 'btn btn-default icon-left'
+
+    - if params[:action] == 'new' or params[:action] == 'edit'
+      = link_to icon('ban') + 'Cancel', :back, class: 'btn btn-default icon-left'

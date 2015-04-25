@@ -1,0 +1,11 @@
+= render 'common/content_header', title: @invoice.title
+
+p
+  strong Due date:
+  = @invoice.due_date
+p
+  strong Number:
+  = @invoice.number
+p
+  strong Description:
+  = @invoice.description

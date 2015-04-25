@@ -1,0 +1,18 @@
+- clients = Client.all
+- projects = Project.all
+- statuses = Status.invoice
+
+= simple_form_for(@invoice) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.association :client, collection: clients, prompt: '--'
+    = f.input :due_date, as: :date_picker
+    = f.input :status_id, collection: statuses, default: statuses.first
+    = f.association :project, collection: projects, include_blank: '--'
+    = f.input :number
+    = f.input :description, as: :text_editor, input_html: { rows: 3 }
+
+  .form-actions
+    = f.button :submit

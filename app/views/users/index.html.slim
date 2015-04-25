@@ -1,0 +1,18 @@
+.top-header
+  h2 User#index
+
+table.table-listing
+  thead
+    tr
+      th Name
+      th Email
+      th Actions
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = link_to user_name(user), user
+        td = user.email
+        td.table-actions
+          = link_to icon('pencil'), edit_user_path(user), class: 'btn btn-default'
+          = link_to icon('trash'), user, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

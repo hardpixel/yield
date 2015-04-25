@@ -1,0 +1,67 @@
+.row.list-view
+  - @tasks.each do |task|
+    .task-item.col-xs-12
+      .box.box-card.clearfix class=('box-' + status_color(task.status))
+        = render 'box_header', task: task
+
+        .box-body.col-xs-12.col-md-3.border-top
+          .row
+            .col-xs-6.border-right
+              .description-block
+                h3.text-green.desctiption-text
+                  strong
+                    = 'ON'
+                span.desctiption-text
+                  = 'Schedule'
+
+            .col-xs-6
+              .description-block
+                h3.desctiption-text class=('text-' + ratio_color(task.completed))
+                  strong
+                    = task.completed.to_s + '%'
+                span.desctiption-text
+                  = 'Completed'
+
+        .box-group.col-xs-12.col-md-5.no-padding.border-right.border-left
+          .box-group-item.col-xs-12
+            p.notes
+              - unless task.description.blank?
+                = task.description.html_safe
+              - else
+                = 'No task description'
+
+          .box-group-item.col-xs-12.col-md-6.border-right
+            strong
+              = 'Project' + ': '
+            - if task.project
+              = link_to task.project.name, task.project
+            - else
+              = 'No project set'
+
+          .box-group-item.col-xs-12.col-md-6
+            strong
+              = 'Assignee' + ': '
+            - if task.user
+              = gravatar task.user, 16, class: 'img-circle'
+              = link_to task.user.full_name, task.user
+            - else
+              = 'No user assigned'
+
+          .box-group-item.col-xs-12.col-md-6.border-right
+            strong
+              = 'Start' + ': '
+            - if task.start_date
+              = task.start_date.strftime('%d %B %Y')
+            - else
+              = 'No start date set'
+
+          .box-group-item.col-xs-12.col-md-6
+            strong
+              = 'Due' + ': '
+            - if task.due_date
+              = task.due_date.strftime('%d %B %Y')
+            - else
+              = 'No due date set'
+
+        .col-xs-12.col-md-4.no-padding
+          = render 'box_footer', task: task

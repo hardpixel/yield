@@ -1,0 +1,25 @@
+h1 Listing timelogs
+
+table
+  thead
+    tr
+      th Time
+      th User
+      th Task
+      th
+      th
+      th
+
+  tbody
+    - @timelogs.each do |timelog|
+      tr
+        td = timelog.time
+        td = timelog.user_id
+        td = timelog.task_id
+        td = link_to 'Show', timelog
+        td = link_to 'Edit', edit_timelog_path(timelog)
+        td = link_to 'Destroy', timelog, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Timelog', new_timelog_path

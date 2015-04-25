@@ -1,0 +1,28 @@
+.box-footer
+  .row
+    .col-xs-4.border-right
+      .description-block
+        h5.description-header.text-aqua
+          - if task.est_hours
+            = task.est_hours
+          - else
+            = 0
+        span.desctiption-text
+          = 'Est. Hours'
+
+    .col-xs-4.border-right
+      .description-block
+        h5.description-header.text-green
+          - if task.log_hours
+            = task.log_hours
+          - else
+            = 0
+        span.desctiption-text
+          = 'Hours Spent'
+
+    .col-xs-4
+      .description-block
+        h5.description-header.text-muted
+          = task.comments.count
+        span.desctiption-text
+          = 'Comments'

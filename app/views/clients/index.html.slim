@@ -1,0 +1,16 @@
+= render 'common/content_header', title: 'Clients'
+
+- if @clients.any?
+
+  - if params['view'] == 'list'
+    = render 'list_view'
+  - else params['view']
+    = render 'grid_view'
+
+- else
+
+  = render 'common/no_data'
+
+= will_paginate @clients
+
+= render 'sidebar'

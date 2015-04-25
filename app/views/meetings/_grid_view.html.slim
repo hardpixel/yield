@@ -1,0 +1,21 @@
+.row.grid-view
+  - @meetings.each do |meeting|
+    .meeting.col-xs-12.col-md-4
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            = link_to meeting.subject, meeting
+
+          .panel-actions.dropdown
+            button.dropdown-toggle aria-expanded="false" data-toggle="dropdown" type="button"
+              = icon 'chevron-down'
+
+            ul.dropdown-menu.dropdown-right role="menu"
+              li.icon-left
+                = link_to icon('pencil') + 'Edit', edit_meeting_path(meeting), class: 'icon-left'
+              li.icon-left
+                = link_to icon('trash') + 'Delete', meeting, data: { confirm: 'Are you sure?' }, method: :delete, class: 'icon-left'
+
+        .panel-body data-mh="panel-body"
+
+        .panel-footer

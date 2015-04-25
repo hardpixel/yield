@@ -1,0 +1,42 @@
+= render 'common/content_header', title: @project.name
+
+.panel.panel-default
+  .panel-heading
+    h3.panel-title = 'Project information'
+
+  .panel-body
+    p
+      strong Client:
+      = @project.client.name
+
+    p
+      strong Parent:
+      - if @project.parent
+        = @project.parent.name
+
+    p
+      strong Start date:
+      = @project.start_date
+    p
+      strong Due date:
+      = @project.due_date
+    p
+      strong Description:
+      = @project.description.html_safe
+    p
+      strong Members:
+      - unless @project.members.empty?
+        - @project.members.each do |m|
+          = m.full_name
+
+.panel.panel-default
+  .panel-heading
+    h3.panel-title = 'Activity'
+
+  ul.list-group
+    - @project.audits.last(5).each do |a|
+      li.list-group-item
+        = gravatar a.user, 24
+        = a.user.full_name
+        = a.action
+        = a.audited_changes

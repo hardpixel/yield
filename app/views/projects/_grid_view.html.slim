@@ -1,0 +1,65 @@
+.row.grid-view
+  - @projects.each do |project|
+    .project-item.col-xs-12.col-md-6.col-lg-4
+      .box.box-card
+        = render 'box_header', project: project
+
+        .flat-body
+          .row
+            .col-xs-6.border-right
+              .description-block
+                h2.text-green.desctiption-text
+                  strong
+                    = 'ON'
+                span.desctiption-text
+                  = 'Schedule'
+
+            .col-xs-6
+              .description-block
+                h2.desctiption-text class=('text-' + ratio_color(project_complete_ratio(project)))
+                  strong
+                    = project_complete_ratio(project).to_s + '%'
+                span.desctiption-text
+                  = 'Completed'
+
+        .box-group
+          .box-group-item.col-xs-12
+            p.notes
+              - unless project.description.blank?
+                = project.description.html_safe
+              - else
+                = 'No project description'
+
+          .box-group-item.col-xs-12.col-md-6.border-right
+            strong
+              = 'Client' + ': '
+            - if project.client
+              = link_to project.client.name, project.client
+            - else
+              = 'No client set'
+
+          .box-group-item.col-xs-12.col-md-6
+            strong
+              = 'Parent' + ': '
+            - if project.parent
+              = link_to project.parent.name, project.parent
+            - else
+              = 'No parent project'
+
+          .box-group-item.col-xs-12.col-md-6.border-right
+            strong
+              = 'Start' + ': '
+            - if project.start_date
+              = project.start_date.strftime('%d %B %Y')
+            - else
+              = 'No start date set'
+
+          .box-group-item.col-xs-12.col-md-6
+            strong
+              = 'Due' + ': '
+            - if project.due_date
+              = project.due_date.strftime('%d %B %Y')
+            - else
+              = 'No due date set'
+
+        = render 'box_footer', project: project

@@ -1,0 +1,21 @@
+.row.grid-view
+  - @leads.each do |lead|
+    .lead-item.col-xs-12.col-md-4
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            = link_to lead.title, lead
+
+          .panel-actions.dropdown
+            button.dropdown-toggle aria-expanded="false" data-toggle="dropdown" type="button"
+              = icon 'chevron-down'
+
+            ul.dropdown-menu.dropdown-right role="menu"
+              li.icon-left
+                = link_to icon('pencil') + 'Edit', edit_lead_path(lead), class: 'icon-left'
+              li.icon-left
+                = link_to icon('trash') + 'Delete', lead, data: { confirm: 'Are you sure?' }, method: :delete, class: 'icon-left'
+
+        .panel-body data-mh="panel-body"
+
+        .panel-footer

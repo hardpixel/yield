@@ -1,0 +1,14 @@
+= render 'common/content_header', title: @expense.title
+
+p
+  strong Description:
+  = @expense.description
+p
+  strong Due date:
+  = @expense.due_date
+p
+  strong Recurring:
+  = @expense.recurring
+p
+  strong Rec cycle:
+  = @expense.rec_cycle

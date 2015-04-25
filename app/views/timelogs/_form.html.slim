@@ -1,0 +1,10 @@
+= simple_form_for(@timelog) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :time
+    = f.input :user_id
+    = f.input :task_id
+
+  .form-actions
+    = f.button :submit

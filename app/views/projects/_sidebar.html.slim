@@ -1,0 +1,11 @@
+- content_for :sidebar do
+
+  ul.sidebar-menu
+    li.header
+      = 'SORT BY'
+    li
+      = link_to 'Client Name', params.merge(sort_by: 'client_name')
+    li
+      = link_to 'Start Date', params.merge(sort_by: 'start_date')
+    li
+      = link_to 'Due Date', params.merge(sort_by: 'due_date')

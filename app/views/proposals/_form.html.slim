@@ -1,0 +1,10 @@
+= simple_form_for(@proposal) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :description, as: :text_editor, input_html: { rows: 5 }
+    = f.input :due_date, as: :date_picker
+
+  .form-actions
+    = f.button :submit

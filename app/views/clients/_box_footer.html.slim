@@ -1,0 +1,22 @@
+.box-footer
+  .row
+    .col-xs-4.border-right
+      .description-block
+        h5.description-header.text-green
+          = '2.500€'
+        span.desctiption-text
+          = 'Paid'
+
+    .col-xs-4.border-right
+      .description-block
+        h5.description-header.text-yellow
+          = '3.000€'
+        span.desctiption-text
+          = 'Unpaid'
+
+    .col-xs-4
+      .description-block
+        h5.description-header.text-blue
+          = client.projects.count
+        span.desctiption-text
+          = 'Projects'

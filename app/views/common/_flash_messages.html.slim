@@ -1,0 +1,13 @@
+- if notice
+  p.page-alert.alert.alert-info.alert-dismissible
+  	button.close aria-label="Close" data-dismiss="alert" type="button"
+  	  i.fa.fa-times aria-hidden="true"
+
+    = notice
+
+- if alert
+  p.page-alert.alert.alert-warning.alert-dismissible
+  	button.close aria-label="Close" data-dismiss="alert" type="button"
+  	  i.fa.fa-times aria-hidden="true"
+
+    = alert

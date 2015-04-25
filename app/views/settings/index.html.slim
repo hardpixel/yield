@@ -1,0 +1,13 @@
+.top-header
+  h2 = t 'General Settings'
+
+/ = simple_form_for(@setting) do |f|
+/   = f.error_notification
+
+/   .form-inputs
+/     = f.input :value, collection: ['flatly', 'united', 'lumen', 'superhero', 'paper']
+
+/   .form-actions
+/     = f.button :submit
+
+= render 'sidebar'

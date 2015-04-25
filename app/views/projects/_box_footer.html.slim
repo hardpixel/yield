@@ -1,0 +1,22 @@
+.box-footer
+  .row
+    .col-xs-4.border-right
+      .description-block
+        h5.description-header.text-green
+          = project.open_tasks.count
+        span.desctiption-text
+          = 'Open Tasks'
+
+    .col-xs-4.border-right
+      .description-block
+        h5.description-header.text-red
+          = project.closed_tasks.count
+        span.desctiption-text
+          = 'Closed Tasks'
+
+    .col-xs-4
+      .description-block
+        h5.description-header.text-blue
+          = project.members.count
+        span.desctiption-text
+          = 'Members'

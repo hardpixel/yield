@@ -1,0 +1,24 @@
+table.table-listing
+  thead
+    tr
+      th width="35"
+        .checkbox.checkbox-success.checkbox-only
+          = check_box 'select', 'all'
+          label
+      th Title
+      th Description
+      th Actions
+
+  tbody
+    - @leads.each do |lead|
+      tr
+        td
+          .checkbox.checkbox-success.checkbox-only
+            = check_box 'select', lead
+            label
+        td = lead.title
+        td = lead.description
+
+        td.table-actions
+          = link_to icon('pencil'), edit_lead_path(lead), class: 'btn btn-default'
+          = link_to icon('trash'), lead, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

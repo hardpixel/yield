@@ -1,0 +1,24 @@
+.row.list-view
+  - @expenses.each do |expense|
+    .expense.col-xs-12
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            = link_to expense.title, expense
+
+          .panel-actions.dropdown
+            button.dropdown-toggle aria-expanded="false" data-toggle="dropdown" type="button"
+              = icon 'chevron-down'
+
+            ul.dropdown-menu.dropdown-right role="menu"
+              li.icon-left
+                = link_to icon('pencil') + 'Edit', edit_expense_path(expense), class: 'icon-left'
+              li.icon-left
+                = link_to icon('trash') + 'Delete', expense, data: { confirm: 'Are you sure?' }, method: :delete, class: 'icon-left'
+
+        .panel-body
+
+        .panel-footer
+          .text-success
+
+          .text-warning

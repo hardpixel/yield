@@ -1,0 +1,14 @@
+= render 'common/content_header', title: 'Tasks'
+
+- if @tasks.any?
+
+  - if params['view'] == 'list'
+  	= render 'list_view'
+  - else
+    = render 'grid_view'
+
+- else
+
+  = render 'common/no_data'
+
+= will_paginate @tasks

@@ -1,0 +1,21 @@
+.row.list-view
+  - @invoices.each do |invoice|
+    .invoice-item.col-xs-12
+      .panel.panel-default
+        .panel-heading
+          .panel-title = link_to invoice.title, invoice
+
+          .panel-actions.dropdown
+            button.dropdown-toggle aria-expanded="false" data-toggle="dropdown" type="button"
+              = icon 'chevron-down'
+
+            ul.dropdown-menu.dropdown-right role="menu"
+              li.icon-left
+                = link_to icon('pencil') + 'Edit', edit_invoice_path(invoice), class: 'icon-left'
+              li.icon-left
+                = link_to icon('trash') + 'Delete', invoice, data: { confirm: 'Are you sure?' }, method: :delete, class: 'icon-left'
+
+        .panel-body
+          = invoice.due_date
+          = invoice.number
+          = invoice.description

@@ -1,0 +1,15 @@
+table.table-listing
+  thead
+    tr
+      th Name
+      th Description
+      th Actions
+
+  tbody
+    - @spaces.each do |space|
+      tr
+        td = link_to space.name, space
+        td = space.description
+        td.table-actions
+          = link_to icon('pencil'), edit_space_path(space), class: 'btn btn-default'
+          = link_to icon('trash'), space, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

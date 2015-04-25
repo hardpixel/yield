@@ -1,0 +1,15 @@
+= simple_form_for(@expense) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :amount
+    = f.input :due_date, as: :date_picker
+    = f.input :description, as: :text_editor, input_html: { rows: 5 }
+    = f.association :client, collection: Client.all, prompt: 'Choose a client'
+    = f.association :project, collection: Project.all, prompt: 'Choose a project'
+    = f.input :recurring, as: :radio_buttons, label: 'Is reccurring?', input_html: { data: { toggle: 'expense_rec_cycle' } }
+    = f.input :rec_cycle, label: 'Reccurrement cycle'
+
+  .form-actions
+    = f.button :submit

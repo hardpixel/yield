@@ -1,0 +1,11 @@
+= simple_form_for(@meeting) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :subject
+    = f.input :description, as: :text_editor, input_html: { rows: 5 }
+    = f.input :start_time, as: :datetime_picker
+    = f.input :end_time, as: :datetime_picker
+
+  .form-actions
+    = f.button :submit

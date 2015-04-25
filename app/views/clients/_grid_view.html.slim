@@ -1,0 +1,49 @@
+.row.grid-view
+  - @clients.each do |client|
+    .client-item.col-xs-12.col-md-6.col-lg-4
+      .box.box-card.inline-header
+        = render 'box_header', client: client
+
+        .flat-body
+          = link_to gravatar(client, 72, class: 'img-circle'), client
+
+          h4.box-title
+            = link_to client.name, client
+
+          p.notes
+            - unless client.notes.empty?
+              = client.notes
+            - else
+              = 'No description provided'
+
+        .box-group
+          .box-group-item.col-xs-12.col-sm-6.border-right
+            = icon 'envelope'
+            - unless client.email.empty?
+              = link_to client.email, client.mail_to
+            - else
+              = 'No email address'
+
+          .box-group-item.col-xs-12.col-sm-6
+            = icon 'globe'
+            - unless client.website.empty?
+              = link_to client.website, client.website_url, target: '_blank'
+            - else
+              = 'No website address'
+
+          .box-group-item.col-xs-12.col-sm-6.border-right
+            = icon 'phone'
+            - unless client.phone.empty?
+              = client.phone
+            - else
+              = 'No phone number'
+
+          .box-group-item.col-xs-12.col-sm-6
+            = icon 'mobile'
+            - unless client.mobile.empty?
+              = client.mobile
+            - else
+              = 'No mobile number'
+
+
+        = render 'box_footer', client: client

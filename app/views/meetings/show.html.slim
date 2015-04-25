@@ -1,0 +1,11 @@
+= render 'common/content_header', title: @meeting.subject
+
+p
+  strong Description:
+  = @meeting.description
+p
+  strong Start time:
+  = @meeting.start_time
+p
+  strong End time:
+  = @meeting.end_time

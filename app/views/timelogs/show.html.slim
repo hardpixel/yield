@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Time:
+  = @timelog.time
+p
+  strong User:
+  = @timelog.user_id
+p
+  strong Task:
+  = @timelog.task_id
+
+= link_to 'Edit', edit_timelog_path(@timelog)
+'|
+= link_to 'Back', timelogs_path

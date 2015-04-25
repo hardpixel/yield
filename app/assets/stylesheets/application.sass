@@ -1,0 +1,363 @@
+// Import bootstrap
+@import bootstrap-sprockets
+@import bootstrap/variables
+@import bootstrap
+
+// Import icons
+@import font-awesome-sprockets
+@import font-awesome
+
+// Import framework
+@import admin-lte
+@import admin-lte-skins
+
+// Import components
+@import admin-lte/fonts
+@import admin-lte/variables
+@import admin-lte/checkboxes
+
+// Import extra components
+@import summernote/summernote
+
+
+// General
+
+html
+
+	&.turbolinks-progress-bar::before
+		background-color: $sidebar-dark-bg !important
+		height: 2px !important
+
+.no-padding
+	padding: 0 !important
+
+.no-margin
+	margin: 0 !important
+
+
+// Buttons
+
+.btn-default
+	background: $btn-default-bg
+
+
+// Borders
+
+.border-right, .border-left
+
+	@media (max-width: $screen-xs-max)
+
+		&.col-xs-12
+			border-right: 0
+			border-left: 0
+
+	@media (max-width: $screen-sm-max)
+
+		&.col-sm-12
+			border-right: 0
+			border-left: 0
+
+	@media (max-width: $screen-md-max)
+
+		&.col-md-12
+			border-right: 0
+			border-left: 0
+
+
+// Boxes
+
+.box
+
+	.desctiption-text
+		margin-top: 0
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+
+	.border-top
+		border-top: 1px solid $box-border-color
+
+	.border-bottom
+		border-bottom: 1px solid $box-border-color
+
+.box-card
+
+	&.inline-header
+
+		.box-header
+			position: absolute
+			display: block
+			width: 100%
+			top: 0
+			left: 0
+
+		.box-title
+			margin: 10px 0 0
+
+	.flat-body
+		padding-top: 15px
+		padding-bottom: 15px
+		border-radius: 0
+		background: rgba(black, .03)
+		text-align: center
+
+		img
+			border: 3px solid rgba(black, .03)
+
+		.notes
+			padding: 0 10px
+			margin-top: 5px
+
+	.notes
+		color: $gray-light
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+		margin: 0
+
+	.box-group
+		@extend .clearfix
+		color: $gray-light
+		display: block
+
+		.box-group-item
+			padding-top: 7px
+			padding-bottom: 7px
+			border-top: 1px solid $box-border-color
+			white-space: nowrap
+			overflow: hidden
+			text-overflow: ellipsis
+
+		i
+			margin-right: 5px
+			width: 16px
+			text-align: center
+
+		a
+			color: inherit
+
+
+// Top bar
+
+.main-header
+
+	.gravatar
+		display: inline
+
+	.logo
+		white-space: nowrap
+
+
+		i
+			font-size: 34px
+			display: inline-block
+			vertical-align: middle
+
+	.logo-lg
+
+		i
+			margin-left: -10px
+			margin-right: 10px
+
+		strong
+			margin-right: 5px
+
+
+// Menus
+
+.sidebar-menu
+
+	i
+		margin-right: 10px
+
+
+// Gravatar
+
+.gravatar
+	display: inline-block
+
+
+// Tables
+
+table
+
+	&.table-inline
+		margin-bottom: 0
+		border: 0
+
+		tr:last-child
+
+			td
+				border-bottom: 0 !important
+
+	.gravatar
+		margin-right: 5px
+		vertical-align: middle
+
+	.btn
+		@extend .btn-xs
+
+	.table-actions
+		text-align: right
+
+		.btn
+			margin-left: 3px
+
+
+// Alerts
+
+.alert-dismissible
+
+	.close
+		font-size: 13px
+		line-height: 1.6
+
+
+// Dropdowns
+
+.dropdown-menu
+	min-width: 80px
+
+
+// List view
+
+.list-view
+	margin-left: -($grid-gutter-width / 3)
+	margin-right: -($grid-gutter-width / 3)
+
+	div[class*="col-"]
+		padding-left: $grid-gutter-width / 3
+		padding-right: $grid-gutter-width / 3
+
+// Grid view
+
+.grid-view
+	margin-left: -($grid-gutter-width / 3)
+	margin-right: -($grid-gutter-width / 3)
+
+	div[class*="col-"]
+		padding-left: $grid-gutter-width / 3
+		padding-right: $grid-gutter-width / 3
+
+
+// Icons
+
+.icon-right
+
+	i
+		margin-left: 7px
+		position: relative
+		top: -1px
+
+.icon-left
+
+	i
+		margin-right: 7px
+		position: relative
+		top: -1px
+
+
+// Content header
+
+.content-header
+	display: inline-block
+	width: 100%
+
+	h1
+		float: left
+		margin-top: 4px
+
+		+ .btn
+			margin: 4px 10px 0
+
+	.header-actions
+		float: right
+		display: block
+
+
+// Text editor
+
+.note-editor
+	border-color: $gray
+
+	&.fullscreen
+		border: 0 !important
+
+	.note-editable
+		background: $input-bg
+
+	.note-toolbar
+		border-color: $gray
+		background: $gray-lighter
+
+	.note-statusbar
+		background: $gray-lighter
+
+		.note-resizebar
+			border-color: $gray
+
+			.note-icon-bar
+				border-color: $gray
+
+
+// Pagination
+
+.pagination-container
+	text-align: right
+
+
+// Projects
+
+.list-view
+
+	.project-item
+
+		@media (min-width: $screen-md-min)
+			.box-body
+				padding-top: 13px
+				padding-bottom: 13px
+
+			.box-footer
+				padding-top: 22px
+				padding-bottom: 22px
+
+
+// Clients
+
+.list-view
+
+	.client-item
+
+		@media (min-width: $screen-md-min)
+			.gravatar
+				width: 48px
+				height: 48px
+
+			.box-title
+				margin-top: 7px
+
+			.box-footer
+				padding-top: 22px
+				padding-bottom: 22px
+
+
+// Tasks
+
+.task-item
+
+	.gravatar
+		vertical-align: text-bottom
+		margin-right: 3px
+
+	.description-text
+		margin-bottom: 0
+
+.list-view
+
+	.task-item
+
+		@media (min-width: $screen-md-min)
+
+			.box-footer
+				padding-top: 22px
+				padding-bottom: 22px
