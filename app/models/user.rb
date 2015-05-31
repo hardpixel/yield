@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
   has_many :meetings
 	has_many :spaces
 
-  has_attached_file :avatar, :styles => { :medium => '300x300>', :thumb => '100x100>' }
-
-  validates_attachment :avatar, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'] }
 	validates_presence_of :email
 
   audited
@@ -24,8 +21,24 @@ class User < ActiveRecord::Base
   # Enable user settings
   include RailsSettings::Extend
 
-  # Get full name
-  def full_name
+  # Get user name
+  def name
     "#{first_name} #{last_name}"
+  end
+
+  # Open tasks
+  def open_tasks
+    statuses = Status.task.open.ids
+    unless statuses.empty?
+      User.find(id).tasks.where(status_id: statuses)
+    else
+      User.find(id).tasks
+    end
+  end
+
+  # Closed tasks
+  def closed_tasks
+    statuses = Status.task.closed.ids
+    User.find(id).tasks.where(status_id: statuses)
   end
 end

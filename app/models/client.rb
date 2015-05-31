@@ -9,6 +9,9 @@ class Client < ActiveRecord::Base
 
   audited
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   # Include gravatars for clients
   include Gravtastic
   gravtastic :email

@@ -55,10 +55,11 @@ GEM
     byebug (4.0.5)
       columnize (= 0.9.0)
     cancan (1.6.10)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.7)
-      climate_control (>= 0.0.3, < 1.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -87,6 +88,8 @@ GEM
     flutie (2.0.0)
     font-awesome-sass (4.3.2.1)
       sass (~> 3.2)
+    foreigner (1.7.4)
+      activerecord (>= 3.0.0)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     globalid (0.3.3)
@@ -111,6 +114,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mailboxer (0.12.5)
+      carrierwave (>= 0.5.8)
+      foreigner (>= 0.9.1)
+      rails (>= 3.2.0)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
@@ -118,11 +125,6 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
-    paperclip (4.2.1)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -233,6 +235,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   cancan
+  carrierwave
   coffee-rails
   country_select
   devise
@@ -243,7 +246,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
-  paperclip
+  mailboxer
   rails (= 4.2.0)
   rails-settings-cached
   sass-rails

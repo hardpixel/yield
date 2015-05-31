@@ -47,8 +47,8 @@ module ApplicationHelper
     color = 'default'
 
     unless status.nil?
-      color = 'success' if status.type == 'open'
-      color = 'danger' if status.type == 'closed'
+      color = 'success' if status.type == :open
+      color = 'danger' if status.type == :closed
     end
 
     return color

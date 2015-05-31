@@ -67,7 +67,7 @@ SimpleNavigation::Configuration.run do |navigation|
     main.item :expenses, 'Expenses', expenses_path, html: { icon: 'usd' }
     main.item :timelogs, 'Timelogs', timelogs_path, html: { icon: 'clock-o' }
 
-    main.item :settings, 'Settings', settings_path, html: { icon: 'gears' } if current_user.admin?
+    main.item :settings, 'Settings', settings_path, html: { icon: 'gears' }
 
     # Add an item which has a sub navigation (same params, but with block)
     # main.item :key_2, 'name', url, options do |sub_nav|

@@ -42,8 +42,10 @@ gem 'rails-settings-cached'
 gem 'audited-activerecord'
 # Use scoped search for search results
 gem 'scoped_search'
-# Use paperclip for attachments management
-gem 'paperclip'
+# Use carrierwave for attachments
+gem 'carrierwave'
+# Use mailboxer for messaging and notifications
+gem 'mailboxer'
 
 # Use devise for user authentication
 gem 'devise'

@@ -42,7 +42,11 @@ class Project < ActiveRecord::Base
   # Open tasks
   def open_tasks
     statuses = Status.task.open.ids
-    Project.find(id).tasks.where(status_id: statuses)
+    unless statuses.empty?
+      Project.find(id).tasks.where(status_id: statuses)
+    else
+      Project.find(id).tasks
+    end
   end
 
   # Closed tasks

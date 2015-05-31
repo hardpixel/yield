@@ -43,7 +43,7 @@
               = 'Assignee' + ': '
             - if task.user
               = gravatar task.user, 16, class: 'img-circle'
-              = link_to task.user.full_name, task.user
+              = link_to task.user.name, task.user
             - else
               = 'No user assigned'
 

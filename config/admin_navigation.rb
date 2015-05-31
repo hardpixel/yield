@@ -26,7 +26,7 @@ SimpleNavigation::Configuration.run do |navigation|
   # If you need to add custom html around item names, you can define a proc that
   # will be called with the name you pass in to the navigation.
   # The example below shows how to wrap items spans.
-  navigation.name_generator = Proc.new {|name, item| content_tag(:span, icon(item.html_options[:data][:icon]), class: 'icon-left') + "<span class='nav-label'>#{name}</span>".html_safe}
+  navigation.name_generator = Proc.new {|name, item| (item.html_options[:icon] ? icon(item.html_options[:icon]) : '') + "<span>#{name}</span>".html_safe}
 
   # The auto highlight feature is turned on by default.
   # This turns it off globally (for the whole plugin)
@@ -54,8 +54,8 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            when the item should be highlighted, you can set a regexp which is matched
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
 
-    admin.item :settings, 'General',  settings_path , data: { icon: 'gear' }
-    admin.item :settings, 'Users',  users_path , data: { icon: 'users' }
+    admin.item :settings, 'General',  settings_path , html: { icon: 'gear' }
+    admin.item :settings, 'Users',  users_path , html: { icon: 'users' }
 
     # Add an item which has a sub navigation (same params, but with block)
     # admin.item :key_2, 'name', url, options do |sub_nav|

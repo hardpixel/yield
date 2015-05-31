@@ -2,10 +2,10 @@ class Status < ActiveRecord::Base
 	belongs_to :task
 	belongs_to :invoice
 
-	validates_presence_of :name, :model, :type
+	validates_presence_of :name, :scope, :type
 
-	scope :task, -> { where(model: :task) }
-	scope :invoice, -> { where(model: :invoice) }
+	scope :task, -> { where(scope: :task) }
+	scope :invoice, -> { where(scope: :invoice) }
 	scope :open, -> { where.not(type: :open) }
 	scope :closed, -> { where(type: :closed) }
 	scope :draft, -> { where(type: :draft) }

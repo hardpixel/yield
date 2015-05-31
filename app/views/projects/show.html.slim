@@ -27,7 +27,7 @@
       strong Members:
       - unless @project.members.empty?
         - @project.members.each do |m|
-          = m.full_name
+          = m.name
 
 .panel.panel-default
   .panel-heading
@@ -37,6 +37,6 @@
     - @project.audits.last(5).each do |a|
       li.list-group-item
         = gravatar a.user, 24
-        = a.user.full_name
+        = a.user.name
         = a.action
         = a.audited_changes

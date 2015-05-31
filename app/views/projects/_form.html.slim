@@ -11,7 +11,7 @@
     = f.association :client, prompt: '--'
     = f.input :start_date, as: :date_picker
     = f.input :due_date, as: :date_picker
-    = f.input :member_ids, as: :check_boxes, collection: users, label_method: :full_name, value_method: :id, label: 'Members', default: current_user.id
+    = f.input :member_ids, as: :check_boxes, collection: users, label_method: :name, value_method: :id, label: 'Members', default: current_user.id
 
   .form-actions
     = f.button :submit

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419174614) do
+ActiveRecord::Schema.define(version: 20150426115621) do
 
   create_table "audits", force: :cascade do |t|
     t.integer  "auditable_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150419174614) do
     t.datetime "updated_at",  null: false
     t.string   "name"
     t.string   "contact_ids"
+    t.string   "slug"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150419174614) do
     t.string   "mobile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "client_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -173,10 +175,10 @@ ActiveRecord::Schema.define(version: 20150419174614) do
 
   create_table "statuses", force: :cascade do |t|
     t.string   "name"
-    t.string   "model"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "type"
+    t.string   "scope"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -217,7 +219,6 @@ ActiveRecord::Schema.define(version: 20150419174614) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "admin"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"

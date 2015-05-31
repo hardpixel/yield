@@ -7,7 +7,7 @@
     = f.input :name
     = f.association :project, prompt: '--'
     = f.input :description, as: :text_editor, input_html: { rows: 5 }
-    = f.association :user, label_method: :full_name, label: 'Assigned to', include_blank: '--'
+    = f.association :user, label_method: :name, label: 'Assigned to', include_blank: '--'
     = f.input :status_id, collection: statuses, default: statuses.first
     = f.input :start_date, as: :date_picker
     = f.input :due_date, as: :date_picker
