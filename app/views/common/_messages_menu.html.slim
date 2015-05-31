@@ -1,0 +1,25 @@
+li.dropdown.messages-menu
+  a.dropdown-toggle data-toggle="dropdown" href="#"
+    i.fa.fa-envelope-o
+    span.label.label-success 4
+
+  ul.dropdown-menu
+    li.header You have 4 messages
+    li
+      /! inner menu: contains the actual data
+      ul.menu
+        li
+          / start message
+          a href="#"
+	          .pull-left
+	            img.img-circle alt=("User Image") src="dist/img/user2-160x160.jpg" /
+	          h4
+	            | Support Team
+	            small
+	              i.fa.fa-clock-o
+	              | 5 mins
+	          p Why not buy a new awesome theme?
+        / end message
+
+    li.footer
+      a href="#"  See All Messages

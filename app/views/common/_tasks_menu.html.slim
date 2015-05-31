@@ -1,0 +1,33 @@
+li.dropdown.tasks-menu
+  a.dropdown-toggle data-toggle="dropdown" href="#"
+    i.fa.fa-flag-o
+    - if current_user.open_tasks.any?
+      span.label.label-danger
+        = current_user.open_tasks.count
+
+  ul.dropdown-menu
+    - if current_user.open_tasks.any?
+      li.header
+        = 'You have ' + current_user.open_tasks.count.to_s + ' tasks'
+      li
+        /! inner menu: contains the actual data
+        ul.menu
+          - current_user.open_tasks.each do |task|
+            li
+              /! Task item
+              a href=(task_path task)
+                h3
+                  = task.name
+                  small.pull-right
+                    = task.completed.to_s + '%'
+                .progress.xs
+                  .progress-bar.progress-bar-aqua aria-valuemax="100" aria-valuemin="0" aria-valuenow=(task.completed.to_s) role="progressbar" style=("width:" + task.completed.to_s + "%")
+                    span.sr-only
+                      = task.completed.to_s + '% ' + 'Complete'
+
+      li.footer
+        = link_to 'View all tasks', tasks_path
+
+    - else
+      li.header
+        = 'You have 0 tasks'
